@@ -1,6 +1,11 @@
 """The main entry point for the project"""
+from db import models
+from db.database import engine
+from db.models import User
 from fastapi import FastAPI
 
+
+models.Base.metadata.create_all(engine)
 
 app = FastAPI()
 
