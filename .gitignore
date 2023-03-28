@@ -1,2 +1,4 @@
 __pycache__/
 insta_clone/
+requirements.txt
+.env
