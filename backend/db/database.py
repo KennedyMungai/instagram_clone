@@ -14,6 +14,11 @@ Base = declarative_base()
 
 
 def get_db():
+    """The database connection code
+
+    Yields:
+        connection: The database connection
+    """
     _db = SessionLocal()
     try:
         yield _db
