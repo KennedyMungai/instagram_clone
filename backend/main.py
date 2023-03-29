@@ -2,6 +2,7 @@
 from db import models
 from db.database import engine
 from fastapi import FastAPI
+from routers.user import user_router
 
 
 models.Base.metadata.create_all(engine)
@@ -17,3 +18,5 @@ async def root() -> str:
         str: A message is returned after successful execution
     """
     return "API works"
+
+app.include_router(user_router)
