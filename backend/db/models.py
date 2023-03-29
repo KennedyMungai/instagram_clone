@@ -1,5 +1,5 @@
 """File holds the db models for the app"""
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime
 
 from .database import Base
 
@@ -15,3 +15,17 @@ class User(Base):
     username = Column(String, nullable=False)
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
+
+
+class Post(Base):
+    """The model for the Posts table
+
+    Args:
+        Base (Class): An instance declarative base
+    """
+    __tablename__ = "posts"
+    id = Column(Integer, primary_key=True, index=True)
+    image_url = Column(String)
+    image_url_type = Column(String)
+    caption = Column(String)
+    timestamp = Column(DateTime)
