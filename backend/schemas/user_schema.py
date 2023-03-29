@@ -37,6 +37,11 @@ class UserRequest(UserBase):
 
 
 class User(BaseModel):
+    """The template for the User data
+
+    Args:
+        BaseModel (Class): The parent class
+    """
     username: str
 
     class Config:
