@@ -1,5 +1,5 @@
 """The file that communicates with the database"""
-from db.models import User
+from .models import User
 from schemas.user_schema import UserRequest
 from sqlalchemy.orm.session import Session
 
