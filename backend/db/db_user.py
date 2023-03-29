@@ -3,6 +3,8 @@ from schemas.user_schema import UserRequest
 from sqlalchemy.orm.session import Session
 
 from .models import User
+from db.hashing import password_hash
+
 
 
 def create_user(_db: Session, _request: UserRequest):
@@ -15,7 +17,7 @@ def create_user(_db: Session, _request: UserRequest):
     _new_user = User(
         username=_request.username,
         email=_request.email,
-        password=_request.password
+        password=password_hash(hash, _request.password)
     )
 
     _db.add(_new_user)
