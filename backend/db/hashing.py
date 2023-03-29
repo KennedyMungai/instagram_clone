@@ -18,3 +18,15 @@ class Hash():
             str: The password hash
         """
         return password_context.hash(_password)
+
+    def verify_password(self, plain_password: str, hashed_password: str):
+        """A function to verify the passwords after hashing
+
+        Args:
+            plain_password (str): The plain password
+            hashed_password (str): The passwords after being hashed
+
+        Returns:
+            bool: Whether they re teh same on not
+        """
+        return password_context.verify(plain_password, hashed_password)
