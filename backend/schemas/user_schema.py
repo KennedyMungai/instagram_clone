@@ -45,4 +45,5 @@ class User(BaseModel):
     username: str
 
     class Config:
+        """The configuration subclass for the User class"""
         orm_mode = True
