@@ -21,3 +21,12 @@ class UserResponse(BaseModel):
     """
     username: str
     email: str
+
+
+class UserRequest(UserBase):
+    """The template for the user response data
+
+    Args:
+        UserBase (Class): The parent class
+    """
+    pass
