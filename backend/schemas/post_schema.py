@@ -34,3 +34,7 @@ class PostResponse(BaseModel):
     class Config:
         """The configuration subclass"""
         orm_mode = True
+
+
+class PostRequest(PostBase):
+    pass
