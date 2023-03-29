@@ -16,6 +16,7 @@ class User(Base):
     username = Column(String, nullable=False)
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
+    items = relationship('Post', back_populates='user')
 
 
 class Post(Base):
@@ -31,3 +32,4 @@ class Post(Base):
     caption = Column(String)
     timestamp = Column(DateTime)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"))
+    user = relationship('users', back_populates='items')
