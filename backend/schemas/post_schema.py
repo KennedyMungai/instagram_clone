@@ -1,0 +1,1 @@
+"""The post schema file"""
