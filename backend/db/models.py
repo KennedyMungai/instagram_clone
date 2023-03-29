@@ -1,5 +1,5 @@
 """File holds the db models for the app"""
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 
 from .database import Base
 
@@ -29,3 +29,4 @@ class Post(Base):
     image_url_type = Column(String)
     caption = Column(String)
     timestamp = Column(DateTime)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"))
