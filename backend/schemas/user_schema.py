@@ -22,6 +22,11 @@ class UserResponse(BaseModel):
     username: str
     email: str
 
+    class Config:
+        """The configuration class for the UserResponse class
+        """
+        orm_mode = True
+
 
 class UserRequest(UserBase):
     """The template for the user response data
