@@ -10,6 +10,6 @@ def create_post(_request: PostResponse, _db: Session):
         mage_url=_request.image_url,
         image_url_type=_request.image_url_type,
         caption=_request.caption,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.utcnow(),
         user_id=_request.creator_id
     )
