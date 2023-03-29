@@ -34,4 +34,10 @@ class UserRequest(UserBase):
     Args:
         UserBase (Class): The parent class
     """
-    pass
+
+
+class User(BaseModel):
+    username: str
+
+    class Config:
+        orm_mode = True
