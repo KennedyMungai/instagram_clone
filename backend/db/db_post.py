@@ -7,10 +7,16 @@ from sqlalchemy.orm.session import Session
 
 
 def create_post(_request: PostRequest, _db: Session):
-    new_post = Post(
+    _new_post = Post(
         mage_url=_request.image_url,
         image_url_type=_request.image_url_type,
         caption=_request.caption,
         timestamp=datetime.utcnow(),
         user_id=_request.creator_id
     )
+
+    _db.add(_new_post)
+    _db.commit()
+    _db.refresh(_new_post)
+
+    return _new_post
