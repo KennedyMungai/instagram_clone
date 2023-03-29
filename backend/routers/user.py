@@ -1,5 +1,5 @@
 """The user route"""
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm.session import Session
 
 from db.database import get_db
@@ -12,7 +12,8 @@ user_router = APIRouter(prefix="/user", tags=["User"])
 
 @user_router.get(
     "/",
-    response_model=UserResponse
+    response_model=UserResponse,
+    status_code=status.HTTP_201_CREATED
 )
 async def create_new_user(
     _request: UserRequest,
