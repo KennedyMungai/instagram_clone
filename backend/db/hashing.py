@@ -7,7 +7,8 @@ password_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 class Hash():
     """The hashing class"""
-    def password_hash(_password: str):
+
+    def password_hash(self, _password: str):
         """A function meant to hash the password
 
         Args:
