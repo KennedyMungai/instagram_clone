@@ -1,7 +1,8 @@
 """The file that communicates with the database"""
-from .models import User
 from schemas.user_schema import UserRequest
 from sqlalchemy.orm.session import Session
+
+from .models import User
 
 
 def create_user(_db: Session, _request: UserRequest):
