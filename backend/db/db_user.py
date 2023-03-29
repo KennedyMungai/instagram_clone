@@ -20,3 +20,5 @@ def create_user(_db: Session, _request: UserRequest):
     _db.add(_new_user)
     _db.commit()
     _db.refresh(_new_user)
+
+    return _new_user
