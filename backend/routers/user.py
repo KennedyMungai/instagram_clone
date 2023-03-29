@@ -3,6 +3,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm.session import Session
 
 from backend.db.database import get_db
+from backend.db.db_user import create_user
 from backend.schemas.user_schema import UserRequest, UserResponse
 
 
@@ -13,8 +14,14 @@ user_router = APIRouter(prefix="/user", tags=["User"])
     "/",
     response_model=UserResponse
 )
-async def create_user(
+async def create_new_user(
     _request: UserRequest,
     _db: Session = Depends(get_db)
 ):
-    pass
+    """An endpoint to create a new user
+
+    Args:
+        _request (UserRequest): The new user data
+        _db (Session, optional): The database session. Defaults to Depends(get_db).
+    """
+    create_user(_db, _request)
