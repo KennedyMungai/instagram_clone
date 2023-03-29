@@ -24,4 +24,4 @@ async def create_new_user(
         _request (UserRequest): The new user data
         _db (Session, optional): The database session. Defaults to Depends(get_db).
     """
-    create_user(_db, _request)
+    return create_user(_db, _request)
