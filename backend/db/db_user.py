@@ -1,10 +1,9 @@
 """The file that communicates with the database"""
+from db.hashing import password_hash
 from schemas.user_schema import UserRequest
 from sqlalchemy.orm.session import Session
 
 from .models import User
-from db.hashing import password_hash
-
 
 
 def create_user(_db: Session, _request: UserRequest):
