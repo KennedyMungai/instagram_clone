@@ -16,3 +16,7 @@ def create_user(_db: Session, _request: UserRequest):
         email=_request.email,
         password=_request.password
     )
+
+    _db.add(_new_user)
+    _db.commit()
+    _db.refresh(_new_user)
