@@ -3,6 +3,7 @@ from db.database import get_db
 from fastapi import APIRouter, Depends, status, HTTPException
 from schemas.post_schema import PostRequest
 from sqlalchemy.orm.session import Session
+from db.db_post import create_post
 
 post_router = APIRouter(prefix="/post", tags=["Post"])
 
@@ -17,3 +18,5 @@ async def create_new_post(_request: PostRequest, _db: Session = Depends(get_db))
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="Parameter image url type can only take the values 'absolute' or 'relative'"
         )
+
+    return create_post(_request, _db)
