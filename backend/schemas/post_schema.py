@@ -3,7 +3,7 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-from backend.schemas.user_schema import User
+from schemas.user_schema import User
 
 
 class PostBase(BaseModel):
