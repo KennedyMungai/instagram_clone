@@ -1,9 +1,10 @@
 """The Post router file"""
 from db.database import get_db
-from fastapi import APIRouter, Depends, status, HTTPException
+from db.db_post import create_post
+from fastapi import APIRouter, Depends, HTTPException, status
 from schemas.post_schema import PostRequest
 from sqlalchemy.orm.session import Session
-from db.db_post import create_post
+
 
 post_router = APIRouter(prefix="/post", tags=["Post"])
 
