@@ -14,6 +14,18 @@ image_url_types = ['absolute', 'relative']
 
 @post_router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_new_post(_request: PostRequest, _db: Session = Depends(get_db)):
+    """The create post api endpoint
+
+    Args:
+        _request (PostRequest): The new post data inside a template
+        _db (Session, optional): The database session. Defaults to Depends(get_db).
+
+    Raises:
+        HTTPException: _description_
+
+    Returns:
+        _type_: _description_
+    """
     if not _request.image_url_type in image_url_types:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
